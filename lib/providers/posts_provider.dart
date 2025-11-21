@@ -19,10 +19,7 @@ class PostsProvider extends ChangeNotifier {
   }
 
   Future<void> deleteData({required int postId, required int userId}) async {
-    print("DELETE CALLED with postId: $postId");
     var success = await PostsService.deleteData(postId: postId, userId: userId);
-
-    print("DELETE SUCCESS = $success"); // <--- DEBUG
     if (success) {
       getData();
       notifyListeners();
